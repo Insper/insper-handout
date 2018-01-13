@@ -19,7 +19,6 @@ pandoc-latex-tip:
 
 # Visão Geral
 
-![diagrama de blocos sam-e7 *(cortex-m7-sam-e70 - pg. 7)* \label{"fig:cortexe70"} pdf ](./figs/cortexE70.pdf){width=85%}
 
 Quando trabalhamos com computação embarcada, devemos ter um conhecimento mais profundo do alvo do programa (hardware) já que não existe uma camada de abstração de hardware (HAL) tal como em um sistema operacional de alto nível (Linux, Windows, Android, ...).
 

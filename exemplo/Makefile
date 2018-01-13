@@ -2,32 +2,33 @@
 # Lincoln Mullen | http://lincolnmullen.com | lincoln@lincolnmullen.com
 
 ## Markdown Template
-TEMP-PWD =/home/corsi/Dropbox/Insper/Markdown
-TEMP-TEXT = $(TEMP-PWD)/InsperTemplate.tex
-TEMP-SLIDE = $(TEMP-PWD)/InsperTemplateSlide.tex
-TEMP-FILTER = $(TEMP-PWD)/filterBox.py
-LOGO = $(TEMP-PWD)/logo.pdf
-
+PWD = /home/corsi/tmp/Corsi-Pandoc-Class-Handout
+TEXT = $(PWD)/InsperTemplate.tex
+SLIDE = $(PWD)/InsperTemplateSlide.tex
+FILTER = $(PWD)/filterBox.py
+GITHUB = $(PWD)/toGitHub.py
+LOGO = $(PWD)/logo.pdf
 
 # List files to be made by finding all *.md files and appending .pdf
-PDFS := $(patsubst %.md,%.md.pdf,$(wildcard *.md))
-
-TEX := $(patsubst %.md,%.md.tex,$(wildcard *.md))
+PDFS := $(patsubst %.md,%.pdf,$(wildcard *.md))
+MD   := $(patsubst %.md,%.gh,$(wildcard *.md))
+TEX  := $(patsubst %.md,%.md.tex,$(wildcard *.md))
 
 # The all rule makes all the PDF files listed
 all : $(PDFS)
-
+gh : $(MD)
 tex : $(TEX)
 
 # This generic rule accepts PDF targets with corresponding Markdown
 # source, and makes them using pandoc
-%.md.pdf : %.md
-	pandoc --template=$(TEMP-TEXT) $< --variable logo=$(LOGO) -f markdown --filter pandoc-latex-tip --filter $(TEMP-FILTER) --pdf-engine=xelatex	-o $@
-# This generic rule accepts PDF targets with corresponding Markdown
+%.pdf : %.md
+	pandoc $< --template=$(TEXT) --variable logo=$(LOGO) -f markdown --filter pandoc-latex-tip --filter $(FILTER) --pdf-engine=xelatex	-o $@
+
+%.gh : %.md
+	python $(GITHUB) -f $< -o $@
 
 %.md.tex : %.md
-	pandoc --template=$(TEMP-TEXT) $< --variable logo=$(LOGO) -f markdown --filter pandoc-latex-tip --filter $(TEMP-FILTER) -o $@
-# This generic rule accepts PDF targets with corresponding Markdown
+	pandoc $< --template=$(TEXT) --variable logo=$(LOGO) -f markdown --filter pandoc-latex-tip --filter $(FILTER) -o $@
 
 # Remove all PDF outputs
 clean :

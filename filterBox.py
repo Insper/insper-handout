@@ -42,5 +42,14 @@ def box(key, value, format, meta):
                           label = '\\label{' + ident + '}'
                       return([latex('\\begin{boxQuestion}' + label)] + contents +
                               [latex('\\end{boxQuestion}')])
+        elif "box" in classes:
+                  if format == "latex":
+                      if ident == "":
+                          label = ""
+                      else:
+                          label = '\\label{' + ident + '}'
+                      return([latex('\\begin{tcolorbox}[arc=4mm,outer arc=1mm]' + label)] + contents +
+                              [latex('\\end{tcolorbox}')])
+
 if __name__ == "__main__":
   toJSONFilter(box)

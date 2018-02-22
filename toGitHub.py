@@ -23,6 +23,10 @@ def toGitHub(f,o):
                     box = True
                     fw.write("```\n")
                     fw.write("Questão:\n\n")
+                if "box" in line :
+                    box = True
+                    fw.write("```\n")
+
             elif "</div" in line :
                 if box == True:
                     fw.write("```\n")

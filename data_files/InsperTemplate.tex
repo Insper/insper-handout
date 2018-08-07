@@ -355,7 +355,7 @@ $endif$
 \begin{tikzpicture}[remember picture, overlay]
   \node [anchor=north east, inner sep=0pt]  at (current page.north east)
      {\includegraphics[height=7cm]{$header$}};
-  \node [anchor=north west, inner sep=60pt]  at (current page.north west)
+  \node [anchor=north west, inner sep=30pt]  at (current page.north west)
      {\includegraphics[height=1cm]{$logo$}};
 \end{tikzpicture}
 }
@@ -393,6 +393,27 @@ $endif$
     \path[fill=yellow!50!black,draw=none] (interior.south west) rectangle node[white]{\Huge\bfseries!} ([xshift=4mm]interior.north west);
     },
   drop fuzzy shadow,#1}
+
+%----------------------------------
+% Raul Ikeda
+%----------------------------------
+
+\voffset = 0cm
+\topmargin = 0cm
+\headheight = 0cm
+\headsep = 0cm
+
+\textwidth = 17cm
+\textheight = 25.5cm
+
+\hoffset = 0cm
+\oddsidemargin = 0cm
+\evensidemargin = 0cm
+\marginparsep = 0cm
+\marginparwidth = 0cm
+
+\paperwidth = 21cm
+\paperheight = 29.6cm
 
 %----------------------------------
 % Begin

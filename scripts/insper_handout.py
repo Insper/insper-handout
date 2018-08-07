@@ -27,7 +27,7 @@ if __name__ == "__main__":
     elif arguments.format == 'html':
         if name[-5:] != '.html':
             name += '.html'
-        cmd_line = 'pandoc -f markdown+tex_math_double_backslash -s -o %s %s --data-dir=%s --filter include.py --filter filterBox.py --template %s/InsperTemplate.html'%(name, arguments.filename, script_home, script_home)
+        cmd_line = 'pandoc -f markdown+tex_math_double_backslash -s --self-contained -o %s %s --data-dir=%s --filter include.py --filter filterBox.py --template %s/InsperTemplate.html'%(name, arguments.filename, script_home, script_home)
     else:
         print('Unknown format:', arguments.format)
         sys.exit(-1)

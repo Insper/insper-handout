@@ -1,10 +1,11 @@
 ## Instalação e uso
 
-Para instalar execute
+Para instalar execute:
 
 ```bash
-$ pip install pandoc-latex-tip
-$ python setup.py install
+$ sudo apt install texlive texlive-pictures texlive-latex-extra 
+$ pip install pandoc-latex-tip pandocfilters --user
+$ sudo python setup.py install
 ```
 Será instalado um script `insper_handout.py` na pasta de executáveis do python. Para usar basta rodar
 

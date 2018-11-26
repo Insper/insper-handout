@@ -1,13 +1,17 @@
 ## Instalação e uso
 
-Para instalar execute
+Para instalar execute:
 
-> pip install pandoc-latex-tip
-> python setup.py install
-
+```bash
+$ sudo apt install texlive texlive-pictures texlive-latex-extra 
+$ pip install pandoc-latex-tip pandocfilters --user
+$ sudo python setup.py install
+```
 Será instalado um script `insper_handout.py` na pasta de executáveis do python. Para usar basta rodar
 
-> insper_handout.py roteiro.md
+```bash
+$ insper_handout.py roteiro.md
+```
 
 Será gerado um arquivo `roteiro.pdf` com o resultado final da compilação do arquivo Markdown.
 

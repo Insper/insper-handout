@@ -12,6 +12,7 @@ if __name__ == "__main__":
     parser.add_argument('filename')
     parser.add_argument('--format', action='store', default='latex')
     parser.add_argument('--output', action='store', default=None)
+    parser.add_argument("-c", '--continuous', action='store_true', default=False)
     
     arguments = parser.parse_args()
     name = os.path.splitext(arguments.filename)[0]
@@ -31,5 +32,9 @@ if __name__ == "__main__":
     else:
         print('Unknown format:', arguments.format)
         sys.exit(-1)
-        
-    res = subprocess.run(cmd_line.split())
+
+    if not arguments.continuous:   
+        res = subprocess.run(cmd_line.split())
+    else:
+        while True:
+           res = subprocess.run(cmd_line.split())

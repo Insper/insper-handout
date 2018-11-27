@@ -19,8 +19,7 @@ pandoc-latex-tip:
 
 # Visão Geral
 
-
-Quando trabalhamos com computação embarcada, devemos ter um conhecimento mais profundo do alvo do programa (hardware) já que não existe uma camada de abstração de hardware (HAL) tal como em um sistema operacional de alto nível (Linux, Windows, Android, ...).
+`Quando trabalhamos com` computação embarcada, devemos ter um conhecimento mais profundo do alvo do programa (hardware) já que não existe uma camada de abstração de hardware (HAL) tal como em um sistema operacional de alto nível (Linux, Windows, Android, ...).
 
 O correto entendimento do sistema é crucial para o bom funcionamento do programa, pois a aplicação interfaceia diretamente com o mundo externo, manipulando entradas e saídas do sistema (Input e Output = I/O). Esses I/Os podem estar conectados a atuadores, sensores, memórias, interface com o usuário, protocolos de comunicação e muito outros dispositivos que em conjunto formam um sistema embarcado.
 

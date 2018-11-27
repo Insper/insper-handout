@@ -285,7 +285,7 @@ $endfor$
 \fi
 $endif$
 $if(dir)$
-\ifxetex
+\ifxetex\texttt
   % load bidi as late as possible as it modifies e.g. graphicx
   $if(latex-dir-rtl)$
   \usepackage[RTLdocument]{bidi}

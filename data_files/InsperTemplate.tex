@@ -168,6 +168,8 @@ $if(tables)$
 \usepackage{longtable,booktabs}
 $if(beamer)$
 \usepackage{caption}
+\DeclareCaptionLabelFormat{nolabel}{}
+\captionsetup{labelformat=nolabel}
 % These lines are needed to make table captions work with longtable:
 \makeatletter
 \def\fnum@table{\tablename~\thetable}

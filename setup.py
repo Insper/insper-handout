@@ -13,6 +13,6 @@ setup(name='insper_handout' ,
                      'data_files/cabecalho.png']),
                   (os.path.join(Path.home(), '.insper_handout/filters'),
                     ['data_files/include.py',
-                     'data_files/pandoc-svg.py'   
+                     'data_files/pandoc-svg.py',
                      'data_files/filterBox.py']), ]
     )

@@ -6,6 +6,15 @@ import sys
 import os.path
 import argparse
 
+
+def rst_fileformat(filename, format, output):
+    script_home = os.path.join(Path.home(), '.insper_handout')
+    template_path = os.path.join(script_home, 'TemplateRST.tex')
+    os.system(f'rst2latex.py --template {template_path} {filename} temp.tex')
+    os.system(f'pdflatex -jobname {output} temp.tex ')
+    os.system(f'pdflatex -jobname {output} temp.tex ')
+    os.system(f'pdflatex -jobname {output} temp.tex ')
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(prog="Insper Handout")
@@ -20,11 +29,16 @@ if __name__ == "__main__":
         name = arguments.output
 
     script_home = os.path.join(Path.home(), '.insper_handout')
+    print(arguments.filename[:-3])
+    if arguments.filename[-3:] == 'rst':
+        rst_fileformat(arguments.filename, arguments.format, name)
+        sys.exit(0)
 
     if arguments.format == 'latex':
         if name[-4:] != '.pdf':
             name += '.pdf'
-        cmd_line = 'pandoc -f markdown+tex_math_double_backslash -t latex -o %s %s --data-dir=%s --filter include.py --filter pandoc-svg.py --filter filterBox.py --variable logo=%s/logo.pdf --variable header=%s/cabecalho.png --template %s/InsperTemplate.tex --latex-engine=xelatex'%(name, arguments.filename, script_home, script_home, script_home, script_home )
+        cmd_line = 'pandoc  -t latex -o %s %s --data-dir=%s --filter include.py --filter pandoc-svg.py --filter filterBox.py --variable logo=%s/logo.pdf --variable header=%s/cabecalho.png --template %s/InsperTemplate.tex --pdf-engine=xelatex'%(name, arguments.filename, 
+script_home, script_home, script_home, script_home )
     elif arguments.format == 'html':
         if name[-5:] != '.html':
             name += '.html'

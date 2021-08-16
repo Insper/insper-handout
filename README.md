@@ -3,7 +3,7 @@
 Para instalar execute:
 
 ```bash
-$ sudo apt install texlive texlive-pictures texlive-latex-extra pandoc
+$ sudo apt install texlive textlive-xetex texlive-pictures texlive-latex-extra pandoc
 $ pip3 install pandoc-latex-tip pandocfilters --user
 $ sudo python3 setup.py install
 ```

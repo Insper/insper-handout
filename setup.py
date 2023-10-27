@@ -14,5 +14,6 @@ setup(name='insper_handout' ,
                   (os.path.join(Path.home(), '.insper_handout/filters'),
                     ['data_files/include.py',
                      'data_files/pandoc-svg.py',
-                     'data_files/filterBox.py']), ]
+                     'data_files/filterBox.py']), ],
+      py_modules=[]
     )

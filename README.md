@@ -5,8 +5,12 @@ Para instalar execute:
 ```bash
 $ sudo apt install texlive texlive-xetex texlive-pictures texlive-latex-extra pandoc python3-pandocfilters
 $ pipx install pandoc-latex-tip
+$ pip install setuptools pandocfilters
 $ sudo python3 setup.py install
 ```
+
+Ignore os warnings
+
 Será instalado um script `insper_handout.py` na pasta de executáveis do python. Para usar basta rodar
 
 ```bash

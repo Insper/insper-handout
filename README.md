@@ -5,8 +5,10 @@ Para instalar execute:
 ```bash
 $ sudo apt install texlive texlive-xetex texlive-pictures texlive-latex-extra pandoc python3-pandocfilters
 $ pipx install pandoc-latex-tip
+$ sudo pip install setuptools
 $ pip install setuptools pandocfilters
 $ sudo python3 setup.py install
+$ python3 setup.py install
 ```
 
 Ignore os warnings

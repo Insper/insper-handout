@@ -26,6 +26,12 @@ $endif$
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@maketitle}{\vskip 2em}{\vskip 0.5em}{}{}
+\patchcmd{\@maketitle}{\vskip 1.5em}{\vskip 0.5em}{}{}
+\makeatother
+
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
   \usepackage[utf8]{inputenc}
@@ -356,7 +362,8 @@ $endif$
 \newcommand\Header{%
 \begin{tikzpicture}[remember picture, overlay]
   \node [anchor=north east, inner sep=0pt]  at (current page.north east)
-     {\includegraphics[height=7cm]{$header$}};
+     % Raul - reduced changedlogo size from 7 to 6
+     {\includegraphics[height=6cm]{$header$}};
   \node [anchor=north west, inner sep=30pt]  at (current page.north west)
      {\includegraphics[height=1cm]{$logo$}};
 \end{tikzpicture}

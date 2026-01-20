@@ -31,6 +31,9 @@ $endif$
 \patchcmd{\@maketitle}{\vskip 2em}{\vskip 0.5em}{}{}
 \patchcmd{\@maketitle}{\vskip 1.5em}{\vskip 0.5em}{}{}
 \makeatother
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
 
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
@@ -267,6 +270,7 @@ $endif$
 $endif$
 $if(pagestyle)$
 \pagestyle{$pagestyle$}
+\fancyhf{}
 $endif$
 
 % set default figure placement to htbp
@@ -427,6 +431,37 @@ $endif$
 \paperwidth = 21cm
 \paperheight = 29.6cm
 
+\setlength{\headwidth}{\textwidth}
+
+% Normal pages: only page number on the right
+\fancypagestyle{mystyle}{%
+  \fancyhf{}%
+  \fancyfoot[R]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+% First page: left text + page number on the right
+\fancypagestyle{firstpage}{%
+  \fancyhf{}%
+  \fancyfoot[L]{$footname$}%
+  \fancyfoot[R]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+% Make "plain" pages match normal pages (prevents surprises)
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[R]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+\pagestyle{mystyle}
+
+
+
 %----------------------------------
 % Begin
 %----------------------------------
@@ -437,6 +472,7 @@ $if(beamer)$
 \frame{\titlepage}
 $else$
 \maketitle
+\thispagestyle{firstpage}
 $endif$
 $if(abstract)$
 \begin{abstract}

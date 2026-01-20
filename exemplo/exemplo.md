@@ -2,6 +2,7 @@
 title: Computação Embarcada - IOs (Input/Output)
 author: Rafael Corsi - rafael.corsi@insper.edu.br
 date: Fevereiro 2018
+footname: Raul Ikeda
 ---
 
 

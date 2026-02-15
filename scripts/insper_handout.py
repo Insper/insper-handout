@@ -35,15 +35,15 @@ if __name__ == "__main__":
     if arguments.format == 'latex':
         if name[-4:] != '.pdf':
             name += '.pdf'
-        cmd_line = 'pandoc -f markdown+tex_math_double_backslash -t latex -o %s %s --data-dir=%s --filter include.py  --filter filterBox.py --variable logo=%s/logo.pdf --variable header=%s/cabecalho.png --template %s/InsperTemplate.tex --%s=xelatex'%(name, arguments.filename, script_home, script_home, script_home, script_home, pdf_engine )
+        cmd_line = 'pandoc -f markdown+tex_math_double_backslash+fenced_divs -t latex -o %s %s --data-dir=%s --filter include.py  --filter filterBox.py --lua-filter=%s/box.lua --variable logo=%s/logo.pdf --variable header=%s/cabecalho.png --template %s/InsperTemplate.tex --%s=xelatex'%(name, arguments.filename, script_home, script_home, script_home, script_home, script_home, pdf_engine )
     elif arguments.format == 'html':
         if name[-5:] != '.html':
             name += '.html'
-        cmd_line = 'pandoc -f markdown+tex_math_double_backslash -s --self-contained -o %s %s --data-dir=%s --filter include.py --filter filterBox.py --template %s/InsperTemplate.html'%(name, arguments.filename, script_home, script_home)
+        cmd_line = 'pandoc -f markdown+tex_math_double_backslash+fenced_divs -s --self-contained -o %s %s --data-dir=%s --filter include.py --filter filterBox.py --lua-filter=%s/box.lua --template %s/InsperTemplate.html'%(name, arguments.filename, script_home, script_home, script_home)
     elif arguments.format == 'tex':
         if name[-5:] != '.tex':
             name += '.tex'
-        cmd_line = 'pandoc -f markdown+tex_math_double_backslash -t latex -o %s %s --data-dir=%s --filter include.py --filter filterBox.py --variable logo=%s/logo.pdf --variable header=%s/cabecalho.png --template %s/InsperTemplate.tex'%(name, arguments.filename, script_home, script_home, script_home, script_home )
+        cmd_line = 'pandoc -f markdown+tex_math_double_backslash+fenced_divs -t latex -o %s %s --data-dir=%s --filter include.py --filter filterBox.py --lua-filter=%s/box.lua --variable logo=%s/logo.pdf --variable header=%s/cabecalho.png --template %s/InsperTemplate.tex'%(name, arguments.filename, script_home, script_home, script_home, script_home, script_home )
     else:
         print('Unknown format:', arguments.format)
         sys.exit(-1)

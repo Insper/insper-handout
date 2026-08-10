@@ -1,19 +1,24 @@
 ## Instalação e uso
 
-Para instalar execute:
+Instale primeiro as dependências de sistema:
 
 ```bash
 $ sudo apt install texlive texlive-xetex texlive-pictures texlive-latex-extra pandoc python3-pandocfilters
-$ pipx install pandoc-latex-tip
-$ sudo pip install setuptools
-$ pip install setuptools pandocfilters
-$ sudo python3 setup.py install
-$ python3 setup.py install
 ```
 
-Ignore os warnings
+Para instalar o `insper-handout` a partir deste repositório:
 
-Será instalado um script `insper_handout.py` na pasta de executáveis do python. Para usar basta rodar
+```bash
+$ pipx install .
+```
+
+Durante desenvolvimento, use uma instalação editável:
+
+```bash
+$ python3 -m pip install -e .
+```
+
+Será instalado o comando `insper_handout.py` no ambiente Python. Para usar basta rodar:
 
 ```bash
 $ insper_handout.py roteiro.md
